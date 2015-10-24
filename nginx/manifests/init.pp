@@ -19,7 +19,7 @@ class nginx {
    	 ensure  => 'file',
     	 path    =>  "${var_dir}/index.html",
     	 source  =>  'puppet:///modules/nginx/index.html',
-    	 #require => File['${var_dir}'],
+    	 require => File[$var_dir],
     }
  file{'default.conf':
    	path	 => "${nginx_dir}/conf.d/default.conf",
